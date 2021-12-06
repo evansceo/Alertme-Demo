@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>AlertMe Dashboard</title>
+<link rel="shortcut icon" type="image/x-icon" href="assets/imgs/logo.png">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="assets/css/style.css"/>
+<link rel="stylesheet" href="assets/css/admin.css"/>
+<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet" media="screen" />
+<style>
+.box{
+background: rgba(255,255,255,1);
+padding: 10px 20px;
+border-radius: 2px;
+box-shadow: 0px 0px 15px 5px rgba(0,0,0,0.4);
+}
+body{ 
+/* background-image:url("assets/imgs/back.jpg"); */
+position:relative;
+background: rgb(221, 175, 221);
+}
+
+.status-update-input-box {
+  background-color: #fefefe;
+  padding: 1rem;
+  width: 100%;
+  border: 1px solid #cacaca;
+  box-shadow: 0 0.0625rem 0.1875rem rgba(0, 0, 0, 0.18), 0 0.125rem 2px rgba(0, 0, 0, 0.36);
+}
+textarea{
+	width: 100%;
+}
+
+.status-update-input-box .input-box-container textarea {
+  margin-bottom: 0;
+}
+
+.status-update-input-box .input-box-container textarea:focus {
+  border: 1px solid #cacaca;
+  box-shadow: none;
+}
+
+.status-update-input-box .input-box-container textarea, .status-update-input-box .input-box-container textarea:focus {
+  border-bottom: none;
+}
+
+@media print, screen and (min-width: 40em) {
+  .status-update-input-box .user-action-container {
+    margin-right: 0;
+    margin-left: 0;
+  }
+}
+
+.status-update-input-box .user-action-container .user-action-box {
+  padding: 0;
+  border: 1px solid #cacaca;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.status-update-input-box .user-action-container .user-action-box .action-area {
+  width: 20%;
+  border-right: 0.0625rem solid #cacaca;
+  text-align: center;
+  padding-top: 0.675rem;
+  padding-bottom: 0.675rem;
+}
+
+.status-update-input-box .user-action-container .user-action-box .action-area:last-of-type {
+  border-right: none;
+}
+
+.status-update-input-box .user-action-container .user-action-box .action-area .action-anchor.has-tip {
+  border-bottom: none;
+  cursor: pointer;
+}
+
+.status-update-input-box .user-action-container .user-action-box .action-area .action-anchor .fa {
+  color: #1779ba;
+}
+
+.action-area:hover{
+	background:rgb(221, 175, 221);
+	color:purple;
+}
+
+.status-update-input-box .user-action-container .user-submit-box {
+  padding: 0.35rem 0.5rem;
+  border: 1px solid #cacaca;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-justify-content: flex-end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+}
+
+@media screen and (max-width: 39.9375em) {
+  .status-update-input-box .user-action-container .user-submit-box {
+    border-top: none;
+    -webkit-justify-content: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+  }
+}
+
+@media print, screen and (min-width: 40em) {
+  .status-update-input-box .user-action-container .user-submit-box {
+    border-left: none;
+  }
+}
+input:hover{
+	background-color:white;
+	color:purple;
+}
+
+.status-update-input-box .user-action-container .user-submit-box .button {
+  margin-bottom: 0;
+}
+
+@media screen and (max-width: 39.9375em) {
+  .status-update-input-box .user-action-container .user-submit-box .button {
+    display: block;
+    width: 100%;
+    margin-right: 0;
+    margin-left: 0;
+    margin-top: 0.25rem;
+    margin-bottom: 0.25rem;
+  }
+}
+
+</style>
+<!-- <script defer src="https://use.fontawesome.com/releases/v5.0.8/js/all.js" integrity="sha384-SlE991lGASHoBfWbelyBPLsUlwY1GwNDJo3jSJO04KZ33K2bwfV9YBauFfnzvynJ" crossorigin="anonymous"></script> -->
+			
+</head>
+<body>
+
+<div class="header no-shadow">
+<div class="container-fluid">
+<div class="row">
+<div class="col-sm-4">
+<div class="logo">
+	<a href="./dashboard.html"><img style="width: 30%; height:70%; margin-top: 2%;"class ="imgpropo" src="assets/imgs/logo.png"></a>
+</div>
+</div>
+<div class="col-sm-8">
+<ul class="header-menu pull-right">
+<li><a href="dashboard.html" class="">Dashboard</a></li>
+<li><a href="blogs.html" class="">Blogs</a></li>
+<li><a href="messages.html" class="">Inbox</a></li>
+<li><a href="notifications.html" class="">Notifications</a></li>
+<li><a href="login.html" class="">Logout</a></li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="main">
+<div class="container-fluid-1">
+<div class="col-sm-3 left-sidebar">
+	<div>
+	<h3 style="text-align:center; color:purple; margin:10px;">Featured Blogs</h3>
+	<div class="feature-blog">
+		<img style="width:100%" src="assets/imgs/istockphoto-1141250330-170667a.jpg" class="blog-pic"/>
+	<h4 style="color: blue;">Community security</h4>
+	<p style="text-align: justify;">
+		Marginalisation and social division prevent communities from living in peace. We believe that people are best-placed for identifying and addressing their own security concerns. Our approach brings people together for peace – they define what security is, who it is for and how it is delivered in their communities. 
+	</p>
+	<p>
+		<a style="color:blue" href="blogs.html" class="">continue reading...</a>
+	</p>
+	</div>
+	<hr style="margin: 20px;">
+	<div class="feature-blog">
+		<img style="width:100%" src="assets/imgs/cybersecurity.jpg" class="blog-pic"/>
+	<h4 style="color: blue;">The Importance of Cyber Security Awareness</h4>
+	<p style="text-align: justify;">
+		Cyber security awareness is the combination of both knowing and doing something to protect a business’s information assets. When an enterprise’s employees are cyber security aware, it means they understand what cyber threats are, the potential impact a cyber-attack will have on their business and the steps required to reduce risk and prevent cyber-crime infiltrating their online workspace. 
+	</p>
+	<p>
+		<a style="color:blue" href="blogs.html" class="">continue reading...</a>
+	</p>
+	</div>
+	<hr style="margin: 20px;">
+	</div>
+	<div class="feature-blog">
+		<img style="width:100%" src="assets/imgs/childcyberbullyng.jpg" class="blog-pic"/>
+	<h4 style="color: blue;">Child Cyberbullying: What is it and how to stop it</h4>
+	<p style="text-align: justify;">
+		Cyberbullying is bullying with the use of digital technologies. It can take place on social media, messaging platforms, gaming platforms and mobile phones. It is repeated behaviour, aimed at scaring, angering or shaming those who are targeted. Examples include:
+	</p>
+	<p>style="color:blue" href="notifications.html" class="">continue reading...</a>
+	</p>
+	</div>
+	<hr style="margin: 20px;">
+	<div class="feature-blog">
+		<img style="width:100%" src="assets/imgs/crime-prevention.jpg" class="blog-pic"/>
+		<h4 style="color: blue;">Crime Prevention</h4>
+		<p style="text-align: justify;">
+			Crime prevention is the attempt to reduce and determine crime and criminals. It is applied specifically to efforts made by governments to reduce crime, enforce the law, and maintain criminal justice. 
+		</p>
+		<p>
+			<a style="color:blue" href="blogs.html" class="">continue reading...</a>
+		</p>
+		<hr style="margin: 20px;">
+		</div>
+		<div class="feature-blog">
+			<img style="width:100%" src="assets/imgs/Criminal-Psychology.jpg" class="blog-pic"/>
+			<h4 style="color: blue;">Criminal Psychology</h4>
+			<p style="text-align: justify;">
+				Criminal psychology, also referred to as criminological psychology, is the study of the views, thoughts, intentions, actions and reactions of criminals and all who participate in criminal behavior. 
+			</p>
+			<p>
+				<a style="color:blue" href="blogs.html" class="">continue reading...</a>
+			</p>
+			</div>
+	</div>
+	</div>
+
+</div>
+<div class="col-sm-6" style="border-color:brown;" >
+	<div style="border-color:brown;margin-left:3%" class="status-update-input-box">
+		<form>
+		  <div class="row input-box-container">
+			<div class="columns">
+			  <label> <!-- Add a Label here to give this input box a heading -->
+				<textarea rows="5" placeholder="Hey, Any criminal or violence alert in your area?"></textarea>
+			  </label>
+			</div>
+		  </div>
+		  <div class="row medium-collapse user-action-container">
+			<div class="small-12 medium-7 columns">
+			  <div class="user-action-box">
+				<div class="action-area">
+				  <a href="#" class="action-anchor has-tip bottom" data-tooltip aria-haspopup="true" data-disable-hover="false" tabindex="2" title="Upload a Photo">
+					<i class="fa fa-picture-o" aria-hidden="true"></i>
+					<span class="show-for-sr">Upload a Photo</span>
+				  </a>
+				</div>
+				<div class="action-area">
+				  <a href="#" class="action-anchor has-tip bottom" data-tooltip aria-haspopup="true" data-disable-hover="false" tabindex="2" title="Upload a Video">
+					<i class="fa fa-video-camera" aria-hidden="true"></i>
+					<span class="show-for-sr">Upload a Video</span>
+				  </a>
+				</div>
+				<div class="action-area">
+				  <a href="#" class="action-anchor has-tip bottom" data-tooltip aria-haspopup="true" data-disable-hover="false" tabindex="2" title="Check in">
+					<i class="fa fa-map-marker" aria-hidden="true"></i>
+					<span class="show-for-sr">Check in</span>
+				  </a>
+				</div>
+				<div class="action-area">
+				  <a href="#" class="action-anchor has-tip bottom" data-tooltip aria-haspopup="true" data-disable-hover="false" tabindex="2" title="Add a Feeling">
+					<i class="fa fa-smile-o" aria-hidden="true"></i>
+					<span class="show-for-sr">Add a Feeling</span>
+				  </a>
+				</div>
+				<div class="action-area">
+				  <a href="#" class="action-anchor has-tip bottom" data-tooltip aria-haspopup="true" data-disable-hover="false" tabindex="2" title="Tag a Friend">
+					<i class="fa fa-tags" aria-hidden="true"></i>
+					<span class="show-for-sr">Tag a Friend</span>
+				  </a>
+				</div>
+			  </div>
+			</div>
+			<div class="small-12 medium-5 columns">
+			  <div id="button" class="user-submit-box">
+				<input style="background-color:blue;color:white;" type="submit" class="button small" value="POST">
+			  </div>
+			</div>
+		  </div>
+		</form>
+	  </div>
+	  	  
+<div class="post col-sm-12" style="border-color:brown;" id="post_1">
+<div class="row post-heading"  style="border-color:brown;">
+<div class="col-sm-12" style="border-color:brown;">
+<a href="profile1maninder.html">
+<img src="assets/imgs/woman-icon.jpg" class="profile-picture pull-left"/>
+&nbsp;
+<span class="post-user-name">Melisa Njeri</span><br/>
+&nbsp;
+<small class="post-date text-mute">3rd Dec, 2021 2:08PM</small>
+</a>
+</div>
+</div>
+<div class="row post-body">
+<div class="col-sm-12">
+	<p>
+Incidences of crime and violence e.g, thieves, traffic violence, hate crimes, domestic abuse, are rising around hibn estate!
+<strong><b>#Watch over..!!!!</b></strong>
+<strong><b>#Peek time 9pm!!!!</b></strong>
+<strong><b>#Be home early!!!!</b></strong>
+</p>
+<!-- <video controls width="400px" height="275px">
+<source src="assets/imgs/smile.mp4" type="video/mp4"  >
+</video> -->
+</div>
+</div>
+<div class="row post-action" style="border-color:brown;">
+<ul class="post-action-menu">
+<li><a href="#;" class="text-mute" onclick="like(1);">Like</a></li>
+<li><a href="#;" class="text-mute" onclick="share(1);">Share</a></li>
+<li><a href="#;" class="text-mute" onclick="comment(10);">Comment</a></li>
+<li class="pull-right"><a href="#" class="text-mute"><span id="post_like_count_1">12</span> Likes</a></li>
+<li class="pull-right"><a href="#" class="text-mute"><span id="post_comment_count_1">56</span> Comments</a></li>
+<li class="pull-right"><a href="#" class="text-mute"><span id="post_share_count_1">23</span> Shares</a></li>
+</ul>	
+</div>
+</div>
+               
+<div class="post col-sm-12" style="border-color:brown;" id="post_2">
+<div class="row post-heading" style="border-color:brown;" >
+<div class="col-sm-12" style="border-color:brown;">
+<a href="profile2divyanshu.html">
+<img src="assets/imgs/man-icon.jpg" class="profile-picture pull-left"/>
+&nbsp;
+<span class="post-user-name">James Rotich</span><br/>
+&nbsp;
+<small class="post-date text-mute">30th November, 2021 8:54AM</small>   
+</a>
+</div>
+</div>
+<div class="row post-body">
+<div class="col-sm-12" style="border-color:brown;">
+	<p>
+So, did you guys know that David is still missing from xyz area? The details of this case are extremely odd. Why are we hearing so little about this? Why are there no updates? What’s going on down in xyz area? <big><b>AlertMe</b></big>
+</p>
+<img class ="" src="">
+</div>
+</div>
+<div class="row post-action" style="border-color:brown;">
+<ul class="post-action-menu">
+<li><a href="#;" class="text-mute" onclick="like(2);">Like</a></li>
+<li><a href="#;" class="text-mute" onclick="share(2);">Share</a></li>
+<li><a href="#;" class="text-mute" onclick="comment(2);">Comment</a></li>
+<li class="pull-right"><a href="#" class="text-mute"><span id="post_like_count_2">9</span> Likes</a></li>
+<li class="pull-right"><a href="#" class="text-mute"><span id="post_comment_count_2">45</span> Comments</a></li>
+<li class="pull-right"><a href="#" class="text-mute"><span id="post_share_count_2">3</span> Shares</a></li>
+</ul>
+</div>
+</div>
+<div class="post col-sm-12"  style="border-color:brown;" id="post_3" >
+<div class="row post-heading" style="border-color:brown;">
+<div class="col-sm-12" style="border-color:brown;">
+<a href="profile3sourabh.html">
+<img src="assets/imgs/man-icon.jpg" class="profile-picture pull-left"/>
+&nbsp;
+<span class="post-user-name">Cheruiot Mesack</span><br/>
+&nbsp;
+<small class="post-date text-mute">4th December, 2021 5:36AM</small>
+</a>
+</div>
+</div>
+<div class="row post-body" style="border-color:brown;">
+<div class="col-sm-12" style="border-color:brown;">
+I have been issues following up on a case for 2years but no response, anyone who knows someone who can help or how can i go about it? 
+ <img class ="imgpropo" src="assets/imgs/Example-of-Case.jpg">
+</div>
+</div>
+<div class="row post-action" style="border-color:brown;">
+<ul class="post-action-menu">
+<li><a href="#;" class="text-mute" onclick="like(3);">Like</a></li>
+<li><a href="#;" class="text-mute" onclick="share(3);">Share</a></li>
+<li><a href="#" class="text-mute" onclick="comment(3);">Comment</a></li>
+<li class="pull-right"><a href="#" class="text-mute"><span id="post_like_count_3">9</span> Likes</a></li>
+<li class="pull-right"><a href="#" class="text-mute"><span id="post_comment_count_3">30</span> Comments</a></li>
+<li class="pull-right"><a href="#" class="text-mute"><span id="post_share_count_3">12</span> Shares</a></li>
+</ul>
+</div>
+</div>
+<div class="post col-sm-12" style="border-color:brown;" id="post_4">
+<div class="row post-heading" style="border-color:brown;">
+<div class="col-sm-12" style="border-color:brown;">
+<a href="profile4akshima.html">
+<img src="assets/imgs/woman-icon.jpg" class="profile-picture pull-left"/>
+&nbsp;
+<span class="post-user-name">Alice Mwende</span><br/>
+&nbsp;
+<small class="post-date text-mute">5th December, 2021 7:18AM</small>
+</a>
+</div>
+</div>
+<div class="row post-body" style="border-color:brown;">
+<div class="col-sm-12" style="border-color:brown;">
+It’s a good day today I woke up all by myself without anyone screaming at me to wake up, the phone didn’t ring, and no alarm! yep great day.
+<strong><b>#Greatest song ever!!!!</b></strong>
+<audio controls>
+<source src="assets/imgs/song.mp3" type="audio/mp3">
+</audio>
+</div>
+</div>
+<div class="row post-action" style="border-color:brown;">
+<ul class="post-action-menu">
+<li><a href="#;" class="text-mute" onclick="like(4);">Like</a></li>
+<li><a href="#;" class="text-mute" onclick="share(4);">Share</a></li>
+<li><a href="#;" class="text-mute" onclick="comment(4);">Comment</a></li>
+<li class="pull-right"><a href="#" class="text-mute"><span id="post_like_count_4">4</span> Likes</a></li>
+<li class="pull-right"><a href="#" class="text-mute"><span id="post_comment_count_4">12</span> Comments</a></li>
+<li class="pull-right"><a href="#" class="text-mute"><span id="post_share_count_4">30</span> Shares</a></li>
+</ul>
+	</div>
+</div>
+<div class="post col-sm-12" style="border-color:brown;" id="post_5">
+<div class="row post-heading" style="border-color:brown;">
+<div class="col-sm-12" style="border-color:brown;">
+<a href="profile5shubham.html">
+<img src="assets/imgs/woman-icon.jpg" class="profile-picture pull-left"/>
+&nbsp;
+<span class="post-user-name">Sophie Mwangangi</span><br/>
+&nbsp;
+<small class="post-date text-mute">6th December, 2021 2:39PM</small>
+</a>
+</div>
+</div>
+<div class="row post-body">
+<div class="col-sm-12" style="border-color:brown;">
+This guy below, beware of him, he is a conman, so far 11 cases has been reported about his activities, he most carry out con activities at Roysambu and also at Langate.
+<strong><b>#Beware</b></strong>
+<strong><b>#Incase you see him report to the nearest police station on #999 toll free</b></strong>
+ <img class ="imgpropo" src="assets/imgs/man-icon.jpg">
+</div>
+</div>
+<div class="row post-action" style="border-color:brown;">
+<ul class="post-action-menu">
+<li><a href="#;" class="text-mute" onclick="like(5);">Like</a></li>
+<li><a href="#;" class="text-mute" onclick="share(5);">Share</a></li>
+<li><a href="#;" class="text-mute" onclick="comment(5);">Comment</a></li>
+<li class="pull-right"><a href="#" class="text-mute"><span id="post_like_count_5">5</span> Likes</a></li>
+<li class="pull-right"><a href="#" class="text-mute"><span id="post_comment_count_5">56</span> Comments</a></li>
+<li class="pull-right"><a href="#" class="text-mute"><span id="post_share_count_5">9</span> Shares</a></li>
+</ul>
+</div>
+</div>
+</div>
+<div class="col-sm-3 chat-users">
+<div class="row">
+<h3 style="text-align:center; color:purple; margin:10px;">Sponsored</h3>
+</div>
+<div style="" class="ads">
+<img style="width:80%; height:70%;margin-left: 30px;margin:20px;" src="assets/imgs/caspery.jpg" class="profile-picture pull-left"/>
+</div>
+<div>
+	<img style="width:80%; height:60%;margin-left: 30px;margin:20px;" src="assets/imgs/camera.jpg" class="profile-picture pull-left"/>
+</div>
+<div>
+	<img style="width:80%; height:60%;margin-left: 30px;margin:20px;" src="assets/imgs/guards.png" class="profile-picture pull-left"/>
+</div>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+
+<script>
+function like(id){
+var elem = document.getElementById("post_like_count_"+id);
+var count = parseInt(elem.innerHTML);
+elem.innerHTML = count+1;
+
+}
+function share(id){
+var elem = document.getElementById("post_share_count_"+id);
+var count = parseInt(elem.innerHTML);
+elem.innerHTML = count+1;
+                
+}
+function comment(id){
+var elem = document.getElementById("post_comment_count_"+id);
+var count = parseInt(elem.innerHTML);
+elem.innerHTML = count+1;
+	
+}
+			
+</script>
+</body>
+</html>
