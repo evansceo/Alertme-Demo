@@ -12,10 +12,27 @@ background: rgba(255,255,255,1);
 padding: 10% 20px;
 border-radius: 2px;
 box-shadow: 0px 0px 15px 5px rgba(0,0,0,0.4);
+position: relative;
+  bottom: 0;
+  background: rgba(247, 244, 244, 0.726);
+  /* color: #f1f1f1; */
+  width: 100%;
+  padding: 20px;
 }
 .main{
 min-height:100vh;
 padding:10% 0px;
+}
+#myVideo {
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  min-width: 100%;
+  min-height: 100%;
+  /* opacity: 0.9; */
+}
+a:hover{
+  background: white;
 }
 </style>
 
@@ -52,7 +69,7 @@ return false;
 <div class="row">
 <div class="col-sm-9">
 <div class="logo">
-    <img style="width: 12%; height:70%; margin-top: 2%;"class ="imgpropo" src="assets/imgs/logo.png">
+    <img style="width: 15%; height:70%; margin-top: 2%;"class ="imgpropo" src="assets/imgs/logo.png">
 </div>
 </div>
                 
@@ -60,6 +77,9 @@ return false;
 </div>
 </div>
 <div class="main">
+    <video autoplay muted loop id="myVideo">
+        <source src="assets/imgs/social-networking-back.mp4" type="video/mp4">
+      </video>
 <div class="container-fluid">
 <div class="row">
 <div class="pull-left text-center col-sm-3">
@@ -89,7 +109,7 @@ Username : admin<br/>
 Password : admin123 <br/>
 </p>
 </div><br/>
-<a href="index.html">Signup for AlertMe</a>
+<a style="color:purple" href="index.html">Signup for AlertMe</a>
 </div>
 </form>
 </div>
