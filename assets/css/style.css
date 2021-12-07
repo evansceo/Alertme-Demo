@@ -145,9 +145,9 @@ h6,.h6{
 .main{
     min-height:100%;
     padding: 30px 0px;
-    /* background: url(../imgs/ebdc395d4df18929d3511f972ca35474.jpg) fixed center; */
+    background:url(../imgs/social-networking-back.mp4) fixed center;
     /* filter:hue-rotate(100%); */
-    background: rgb(221, 175, 221);
+    /* background: rgb(221, 175, 221); */
 
 }
 /* Backgrounds */
